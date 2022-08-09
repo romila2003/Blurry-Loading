@@ -19,24 +19,24 @@ This is apart of the 50 projects in 50 days challenge and is the fifth project.
 
 ### The challenge
 
-- To create a search bar that expands, once clicked. The challenge involves HTML, CSS and Javascript.
+- To create a blurry loading page that changes from blurry to normal whilst the percentage increases to 100%. The challenge involves HTML, CSS and Javascript.
 
 ### Screenshot
 
 # Mobile Preview 
 
-![screenshot]()
+![screenshot](https://github.com/romila2003/Blurry-Loading/blob/main/Mobile%20preview.PNG)
 
 
 # Desktop Preview 
 
-![screenshot]()
+![screenshot](https://github.com/romila2003/Blurry-Loading/blob/main/Desktop%20previe.PNG)
 
 
 ### Links
 
  - Source code: [https://github.com/romila2003/Blurry-Loading](https://github.com/romila2003/Blurry-Loading)
- - Live website: [https://hidden-search-widgets.netlify.app/](https://blurry-loading-main.netlify.app/)
+ - Live website: [https://blurry-loading-main.netlify.app/](https://blurry-loading-main.netlify.app/)
 
 ## My process
 
@@ -49,20 +49,27 @@ This is apart of the 50 projects in 50 days challenge and is the fifth project.
 
 ### What I learned
 
-I learned more about the `toggle` feature within Javascript and feel more confident with this concept.
+I worked with the blurring effect and incremented the numbers so that the blur fades as the number gets closer to 100%. I also learned a new concept of `scale`.
 
-Javascript - close and open navbar:
+Javascript - scale:
 
 ```javascript
 
-const search = document.querySelector(".search");
-const btn = document.querySelector(".btn");
-const input = document.querySelector(".input");
+function blurring() {
+    load++;
 
-btn.addEventListener("click", () => {
-    search.classList.toggle("active");
-    input.focus()
-});
+    if(load > 99) {
+        clearInterval(int)
+    }
+
+    loadText.innerText = `${load}%`;
+    loadText.style.opacity = scale(load, 0, 100, 1, 0);
+    bg.style.filter = `blur(${scale(load, 0, 100, 30, 0)}px)`
+}
+
+const scale = (num, in_min, in_max, out_min, out_max) => {
+    return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
+}
 
 ```
 
